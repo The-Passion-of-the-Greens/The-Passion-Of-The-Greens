@@ -26,3 +26,40 @@
   section{
     padding:1.5rem 9%;
   }
+  .heading{
+    font-size: 3rem;
+    color:#444;
+    padding-left: 1rem;
+    border-left: .4rem solid var(--green);
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    background:var(--green);
+    color:#fff;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  .btn:hover{
+    background:#333;
+  }
+  
+  .header-1,
+  .header-2,
+  .header-3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+    background:var(--green);
+  }
+  .logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+  }
+ 
