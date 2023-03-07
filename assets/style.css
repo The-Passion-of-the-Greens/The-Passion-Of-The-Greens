@@ -11,6 +11,7 @@
     text-decoration: none;
     transition: all .2s linear;
   }
+  
   *::selection{
     background:var(--green);
     color:#fff;
@@ -26,6 +27,7 @@
   section{
     padding:1.5rem 9%;
   }
+  
   .heading{
     font-size: 3rem;
     color:#444;
@@ -44,6 +46,7 @@
     font-size: 1.7rem;
     cursor: pointer;
   }
+  
   .btn:hover{
     background:#333;
   }
@@ -62,6 +65,29 @@
     width: 150px;
     height: auto;
   }
+  .header-1{
+    border-bottom: .1rem solid rgba(255,255,255,.2);
+  }
+  
+  .header-3{
+    background:#fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    position: relative;
+    z-index: 10000;
+  }
+  
+  .header-1 span{
+    font-weight: lighter;
+    color:#fff;
+    font-size: 1.7rem;
+  }
+  
+  .header-1 a{
+    padding:0 .7rem;
+    color:#fff;
+    font-size: 2rem;
+  }
+  
   .header-1 a:hover{
     color:yellow;
   }
@@ -145,4 +171,5 @@
   .home{
     padding-top: 0;
   }
+  
   
