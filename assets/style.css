@@ -11,3 +11,18 @@
     text-decoration: none;
     transition: all .2s linear;
   }
+  *::selection{
+    background:var(--green);
+    color:#fff;
+  }
+  
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+  
+  section{
+    padding:1.5rem 9%;
+  }
