@@ -1,5 +1,7 @@
+// Use querySelector to select search-bar and make it into a variable labeled searchButton
 var searchButton = document.querySelector('#search-bar');
 
+// Function used to retrieve species-list information regarding the perrenual API
 function getApi() {
     var requestUrl = ' https://perenual.com/api/species-list?page=1&key=sk-I07P640155763222b151&&edible=1';
 
@@ -12,8 +14,11 @@ function getApi() {
     })
     
     }
-    searchButton.addEventListener('click', getApi);
 
+    // Adds event listener to retrieve getApi function
+    searchButton.addEventListener('click', getApi); 
+
+    // Function to retrieve recipes by ingredients using spoontacular API
     function getRecipeIngr() {
         const options = {
             method: 'GET',
@@ -30,8 +35,10 @@ function getApi() {
             
     }
 
+    // connects previous made event listener to be able to retrieve data from getRecipeIngr function
     searchButton.addEventListener('click', getRecipeIngr);
 
+    // Function to retrieve recipe information using spoontacular API, uses GET method. This will retrieve an object with 1 recipe and its data
     function getRecipeInfo() {
         const options = {
             method: 'GET',
@@ -47,5 +54,5 @@ function getApi() {
             .catch(err => console.error(err));
             
     }
-
+    // connects previous made event listener to be able to retrieve data from getRecipeInfo function
     searchButton.addEventListener('click',  getRecipeInfo);
