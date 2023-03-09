@@ -20,10 +20,11 @@ function getApi() {
 
         for (var i = 0; i < data.data.length; i++) {
 
-            // Creating elements, tablerow, tabledata, and anchor
+            // Creating elements, tablerow, tabledata, anchor, and image
             var createTableRow = document.createElement('tr');
             var tableData = document.createElement('td');
             var plant = document.createElement('a');
+            var plantImg = document.createElement('img');
         
             // Setting the text of plant while making sure that no plants are repeated
             if (i > 0) {
@@ -36,22 +37,31 @@ function getApi() {
                 }
                 if (count === (i)) {
                     plant.textContent = data.data[i].common_name;
-                    console.log(data.data[i].common_name);
+                    plantImg.src = data.data[i].default_image.original_url;
+                    plantImg.style.height = '100px';
+                    plantImg.style.width = '200px';
 
-                    // Appending the link to the tabledata and then appending the tabledata to the tablerow
+                    console.log(data.data[i].common_name);
+                    console.log(data.data[i].default_image.original_url);
+
+                    // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
                     // The tablerow then gets appended to the tablebody
                     tableData.appendChild(plant);
+                    tableData.appendChild(plantImg);
                     createTableRow.appendChild(tableData);
                     tableBody.appendChild(createTableRow);
                 }
             }
             else {
                 plant.textContent = data.data[i].common_name;
-                console.log(data.data[i].common_name);
+                plantImg.src = data.data[i].default_image.original_url;
+                plantImg.style.height = '100px';
+                plantImg.style.width = '200px';
 
-                // Appending the palnt to the tabledata and then appending the tabledata to the tablerow
+                // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
                 // The tablerow then gets appended to the tablebody
                 tableData.appendChild(plant);
+                tableData.appendChild(plantImg);
                 createTableRow.appendChild(tableData);
                 tableBody.appendChild(createTableRow);
             }
@@ -81,10 +91,11 @@ function getApi() {
                 console.log(response);
                 for (var i = 0; i < response.length; i++) {
 
-                    // Creating elements, tablerow, tabledata, and anchor
+                    // Creating elements, tablerow, tabledata, anchor, and image
                     var createTableRow = document.createElement('tr');
                     var tableData = document.createElement('td');
                     var dish = document.createElement('a');
+                    var dishImg = document.createElement('img');
                 
                     // Setting the text of dish while making sure that no dishes are repeated
                     if (i > 0) {
@@ -97,22 +108,24 @@ function getApi() {
                         }
                         if (count === (i)) {
                             dish.textContent = response[i].title;
-                            console.log(response[i].title);
+                            dishImg.src = response[i].image;
         
-                            // Appending the dish to the tabledata and then appending the tabledata to the tablerow
+                            // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                             // The tablerow then gets appended to the tablebody
                             tableData.appendChild(dish);
+                            tableData.appendChild(dishImg);
                             createTableRow.appendChild(tableData);
                             recpBody.appendChild(createTableRow);
                         }
                     }
                     else {
                         dish.textContent = response[i].title;
-                        console.log(response[i].title);
+                        dishImg.src = response[i].image;
         
-                        // Appending the dish to the tabledata and then appending the tabledata to the tablerow
+                        // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                         // The tablerow then gets appended to the tablebody
                         tableData.appendChild(dish);
+                        tableData.appendChild(dishImg);
                         createTableRow.appendChild(tableData);
                         recpBody.appendChild(createTableRow);
                     }
