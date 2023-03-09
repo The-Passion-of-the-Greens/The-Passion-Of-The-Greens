@@ -18,35 +18,50 @@ function getApi() {
         console.log('data', data);
 
         // Removes old children
-
         const childLength = tableBody.children.length;
         for(var i = 0; i < childLength; i++) {
             tableBody.removeChild(tableBody.children[0]);
         }
 
-        for (var i = 0; i < data.data.length; i++) {
+        // Checks to see if search bar is empty
+        if(keyWord !== "") {
+            for (var i = 0; i < data.data.length; i++) {
 
-            // Creating elements, tablerow, tabledata, anchor, and image
-            var createTableRow = document.createElement('tr');
-            var tableData = document.createElement('td');
-            var plant = document.createElement('a');
-            var plantImg = document.createElement('img');
-        
-            // Setting the text of plant while making sure that no plants are repeated
-            if (i > 0) {
-                var count = 0;
-                // Checking to see if the plants name has been previously appended
-                for (var j = 1; j < i + 1; j++) {
-                    if (data.data[i].common_name !== data.data[j - 1].common_name) {
-                        count++;
+                // Creating elements, tablerow, tabledata, anchor, and image
+                var createTableRow = document.createElement('tr');
+                var tableData = document.createElement('td');
+                var plant = document.createElement('a');
+                var plantImg = document.createElement('img');
+            
+                // Setting the text of plant while making sure that no plants are repeated
+                if (i > 0) {
+                    var count = 0;
+                    // Checking to see if the plants name has been previously appended
+                    for (var j = 1; j < i + 1; j++) {
+                        if (data.data[i].common_name !== data.data[j - 1].common_name) {
+                            count++;
+                        }
+                    }
+                    if (count === (i)) {
+                        plant.textContent = data.data[i].common_name;
+                        plantImg.src = data.data[i].default_image.original_url;
+                        plantImg.style.height = '100px';
+                        plantImg.style.width = '200px';
+    
+                        // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
+                        // The tablerow then gets appended to the tablebody
+                        tableData.appendChild(plant);
+                        tableData.appendChild(plantImg);
+                        createTableRow.appendChild(tableData);
+                        tableBody.appendChild(createTableRow);
                     }
                 }
-                if (count === (i)) {
+                else {
                     plant.textContent = data.data[i].common_name;
                     plantImg.src = data.data[i].default_image.original_url;
                     plantImg.style.height = '100px';
                     plantImg.style.width = '200px';
-
+    
                     // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
                     // The tablerow then gets appended to the tablebody
                     tableData.appendChild(plant);
@@ -55,21 +70,7 @@ function getApi() {
                     tableBody.appendChild(createTableRow);
                 }
             }
-            else {
-                plant.textContent = data.data[i].common_name;
-                plantImg.src = data.data[i].default_image.original_url;
-                plantImg.style.height = '100px';
-                plantImg.style.width = '200px';
-
-                // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
-                // The tablerow then gets appended to the tablebody
-                tableData.appendChild(plant);
-                tableData.appendChild(plantImg);
-                createTableRow.appendChild(tableData);
-                tableBody.appendChild(createTableRow);
-            }
         }
-        
     })
     
     }
@@ -93,33 +94,46 @@ function getApi() {
                 console.log(response);
                 
                 // Removes old children
-
                 const childLength = recpBody.children.length;
                 for(var i = 0; i < childLength; i++) {
                     recpBody.removeChild(recpBody.children[0]);
                 }
 
-                for (var i = 0; i < response.length; i++) {
+                // Checks to see if search bar is empty
+                if(keyWord !== "") {
+                    for (var i = 0; i < response.length; i++) {
 
-                    // Creating elements, tablerow, tabledata, anchor, and image
-                    var createTableRow = document.createElement('tr');
-                    var tableData = document.createElement('td');
-                    var dish = document.createElement('a');
-                    var dishImg = document.createElement('img');
-                
-                    // Setting the text of dish while making sure that no dishes are repeated
-                    if (i > 0) {
-                        var count = 0;
-                        // Checking to see if the dish's name has been previously appended
-                        for (var j = 1; j < i + 1; j++) {
-                            if (response[i].title !== response[j - 1].title) {
-                                count++;
+                        // Creating elements, tablerow, tabledata, anchor, and image
+                        var createTableRow = document.createElement('tr');
+                        var tableData = document.createElement('td');
+                        var dish = document.createElement('a');
+                        var dishImg = document.createElement('img');
+                    
+                        // Setting the text of dish while making sure that no dishes are repeated
+                        if (i > 0) {
+                            var count = 0;
+                            // Checking to see if the dish's name has been previously appended
+                            for (var j = 1; j < i + 1; j++) {
+                                if (response[i].title !== response[j - 1].title) {
+                                    count++;
+                                }
+                            }
+                            if (count === (i)) {
+                                dish.textContent = response[i].title;
+                                dishImg.src = response[i].image;
+            
+                                // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
+                                // The tablerow then gets appended to the tablebody
+                                tableData.appendChild(dish);
+                                tableData.appendChild(dishImg);
+                                createTableRow.appendChild(tableData);
+                                recpBody.appendChild(createTableRow);
                             }
                         }
-                        if (count === (i)) {
+                        else {
                             dish.textContent = response[i].title;
                             dishImg.src = response[i].image;
-        
+            
                             // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                             // The tablerow then gets appended to the tablebody
                             tableData.appendChild(dish);
@@ -128,18 +142,7 @@ function getApi() {
                             recpBody.appendChild(createTableRow);
                         }
                     }
-                    else {
-                        dish.textContent = response[i].title;
-                        dishImg.src = response[i].image;
-        
-                        // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
-                        // The tablerow then gets appended to the tablebody
-                        tableData.appendChild(dish);
-                        tableData.appendChild(dishImg);
-                        createTableRow.appendChild(tableData);
-                        recpBody.appendChild(createTableRow);
-                    }
-                 }
+                }
             })
             .catch(err => console.error(err));            
     }
