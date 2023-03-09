@@ -15,8 +15,14 @@ function getApi() {
       return response.json();
     })
     .then(function (data){
-        console.log('data', data)
-        console.log(data.data.length);
+        console.log('data', data);
+
+        // Removes old children
+
+        const childLength = tableBody.children.length;
+        for(var i = 0; i < childLength; i++) {
+            tableBody.removeChild(tableBody.children[0]);
+        }
 
         for (var i = 0; i < data.data.length; i++) {
 
@@ -40,9 +46,6 @@ function getApi() {
                     plantImg.src = data.data[i].default_image.original_url;
                     plantImg.style.height = '100px';
                     plantImg.style.width = '200px';
-
-                    console.log(data.data[i].common_name);
-                    console.log(data.data[i].default_image.original_url);
 
                     // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
                     // The tablerow then gets appended to the tablebody
@@ -76,7 +79,6 @@ function getApi() {
 
     // Function to retrieve recipes by ingredients using spoontacular API
     function getRecipeIngr() {
-        console.log(keyWord);
         const options = {
             method: 'GET',
             headers: {
@@ -89,6 +91,14 @@ function getApi() {
             .then(response => response.json())
             .then((response) => {
                 console.log(response);
+                
+                // Removes old children
+
+                const childLength = recpBody.children.length;
+                for(var i = 0; i < childLength; i++) {
+                    recpBody.removeChild(recpBody.children[0]);
+                }
+
                 for (var i = 0; i < response.length; i++) {
 
                     // Creating elements, tablerow, tabledata, anchor, and image
