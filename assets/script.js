@@ -1,4 +1,4 @@
-// Use querySelector to select search-bar and make it into a variable labeled searchButton
+// Use querySelector to select search-button and make it into a variable labeled searchButton
 var tableBody = document.getElementById('repo-table');
 var recpBody = document.getElementById('recp-table');
 var searchButton = document.querySelector('#search-button');
@@ -49,7 +49,7 @@ function getApi() {
                 plant.textContent = data.data[i].common_name;
                 console.log(data.data[i].common_name);
 
-                // Appending the link to the tabledata and then appending the tabledata to the tablerow
+                // Appending the palnt to the tabledata and then appending the tabledata to the tablerow
                 // The tablerow then gets appended to the tablebody
                 tableData.appendChild(plant);
                 createTableRow.appendChild(tableData);
@@ -99,7 +99,7 @@ function getApi() {
                             dish.textContent = response[i].title;
                             console.log(response[i].title);
         
-                            // Appending the link to the tabledata and then appending the tabledata to the tablerow
+                            // Appending the dish to the tabledata and then appending the tabledata to the tablerow
                             // The tablerow then gets appended to the tablebody
                             tableData.appendChild(dish);
                             createTableRow.appendChild(tableData);
@@ -110,7 +110,7 @@ function getApi() {
                         dish.textContent = response[i].title;
                         console.log(response[i].title);
         
-                        // Appending the link to the tabledata and then appending the tabledata to the tablerow
+                        // Appending the dish to the tabledata and then appending the tabledata to the tablerow
                         // The tablerow then gets appended to the tablebody
                         tableData.appendChild(dish);
                         createTableRow.appendChild(tableData);
@@ -118,8 +118,7 @@ function getApi() {
                     }
                  }
             })
-            .catch(err => console.error(err));
-            
+            .catch(err => console.error(err));            
     }
 
     // connects previous made event listener to be able to retrieve data from getRecipeIngr function
