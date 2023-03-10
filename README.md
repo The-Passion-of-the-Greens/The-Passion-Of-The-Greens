@@ -19,6 +19,12 @@
 
 # 🔗 Links
 
+https://the-passion-of-the-greens.github.io/The-Passion-Of-The-Greens/
+
+https://github.com/The-Passion-of-the-Greens/The-Passion-Of-The-Greens
+
 ### Resources
 
 # 🔗 Project status
+
+ In Progress
