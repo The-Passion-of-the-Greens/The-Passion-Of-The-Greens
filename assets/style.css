@@ -45,7 +45,7 @@
     margin-top: 1rem;
     padding:.8rem 3rem;
     background:var(--green);
-    color:#fff;
+    color:#ffffff;
     font-size: 1.7rem;
     cursor: pointer;
   }
@@ -81,13 +81,13 @@
   
   .header-1 span{
     font-weight: lighter;
-    color:#fff;
+    color:#e6dede;
     font-size: 1.7rem;
   }
   
   .header-1 a{
     padding:0 .7rem;
-    color:#fff;
+    color:#e2d9d9;
     font-size: 2rem;
   }
   
