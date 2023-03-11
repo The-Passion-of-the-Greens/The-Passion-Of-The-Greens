@@ -183,3 +183,8 @@
   .p-class-my-4{
     font-size: 30px;
   }
+  body
+   { background-image:url(./images/slider1.jpg);
+    background-size: cover;
+  
+   }
