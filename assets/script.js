@@ -1,6 +1,6 @@
 // Use querySelector to select search-button and make it into a variable labeled searchButton
-var tableBody = document.getElementById('repo-table');
-var recpBody = document.getElementById('recp-table');
+var tableBody =  document.getElementById('repo-table');
+var recpBody =  document.getElementById('recp-table');
 var searchButton = document.querySelector('#search-button');
 var searchBar = document.querySelector('#search-bar');
 var keyWord = document.querySelector('#search-bar').value;
@@ -91,7 +91,7 @@ function getApi() {
             }
         };
         
-        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${keyWord}&diet=vegetarian&number=30&ignorePantry=true&ranking=1`, options)
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=${keyWord}&number=5`, options)
             .then(response => response.json())
             .then((response) => {
                 console.log(response);
@@ -104,13 +104,14 @@ function getApi() {
 
                 // Checks to see if search bar is empty
                 if(keyWord !== "") {
-                    for (var i = 0; i < response.length; i++) {
-
+                    for (var i = 0; i < response.results.length; i++) {
+                    getRecipeInfo(response.results)
                         // Creating elements, tablerow, tabledata, anchor, and image
                         var createTableRow = document.createElement('tr');
                         var tableData = document.createElement('td');
-                        var dish = document.createElement('a');
-                        var dishImg = document.createElement('img');
+                        var dish = document.createElement('h3');
+                        var dishLink = document.createElement('a');
+                        var dishImg = document.createElement('img')
                         
                     
                         // Setting the text of dish while making sure that no dishes are repeated
@@ -118,44 +119,48 @@ function getApi() {
                             var count = 0;
                             // Checking to see if the dish's name has been previously appended
                             for (var j = 1; j < i + 1; j++) {
-                                if (response[i].title !== response[j - 1].title) {
+                                if (response.results[i].title !== response.results[j-1].title) {
                                     count++;
                                 }
                             }
                             if (count === (i)) {
-                                dish.textContent = response[i].title;
-                                dishImg.src = response[i].image;
+                                dish.textContent = response.results[i].title;
+                                dishLink.textContent = response.results[i].sourceUrl;
+                                dishLink.href = response.results[i].sourceUrl;
             
                                 // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                                 // The tablerow then gets appended to the tablebody
                                 tableData.appendChild(dish);
-                                tableData.appendChild(dishImg);
+                                tableData.appendChild(dishLink);
                                 createTableRow.appendChild(tableData);
                                 recpBody.appendChild(createTableRow);
                             }
                         }
                         else {
-                            dish.textContent = response[i].title;
-                            dishImg.src = response[i].image;
-            
+                            dish.textContent = response.results[i].title;
+                            dishLink.textContent = response.results[i].sourceUrl;
+                            dishLink.href = response.results[i].sourceUrl;
                             // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                             // The tablerow then gets appended to the tablebody
                             tableData.appendChild(dish);
-                            tableData.appendChild(dishImg);
+                            tableData.appendChild(dishLink);
                             createTableRow.appendChild(tableData);
                             recpBody.appendChild(createTableRow);
                         }
                     }
                 }
             })
-            .catch(err => console.error(err));            
+            getRecipeInfo(keyWord);
+            // .catch(err => console.error(err));            
     }
 
     // connects previous made event listener to be able to retrieve data from getRecipeIngr function
     searchButton.addEventListener('click', getRecipeIngr);
 
     // Function to retrieve recipe information using spoontacular API, uses GET method. This will retrieve an object with 1 recipe and its data
-    function getRecipeInfo() {
+    function getRecipeInfo(results) {
+        
+
         const options = {
             method: 'GET',
             headers: {
@@ -164,11 +169,10 @@ function getApi() {
             }
         };
         
-        fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information', options)
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients=${keyWord}&ignorePantry=true&ranking=1`, options)
             .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-            
+            .then(response => console.log(response));
+        
     }
     // connects previous made event listener to be able to retrieve data from getRecipeInfo function
     searchButton.addEventListener('click',  getRecipeInfo);
