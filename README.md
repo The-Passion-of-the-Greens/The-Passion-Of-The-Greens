@@ -48,7 +48,13 @@ https://github.com/The-Passion-of-the-Greens/The-Passion-Of-The-Greens
 2. https://github.com/othneildrew/Best-README-Template/blob/master/README.md
 3. https://perenual.com/api/species-list?key=sk-I07P640155763222b151&q=$%7BkeyWord%7D&edible=1
 4. https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients=$%7BkeyWord%7D&ignorePantry=true&ranking=1
+5. https://cdnjs.com
 
 # 🔗 Project status
 
  In Progress
+
+
+MIT License
+
+Copyright (c) 2023 The Passion of Greens
