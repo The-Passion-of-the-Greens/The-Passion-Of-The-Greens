@@ -34,7 +34,7 @@
 
 
 ## The following Image demonstrates the application functionality:
-<img src="./assets/images/Screenshot 1.png">
+<img src="./assets/images/Screen Shot 2023-03-12 at 7.15.54 PM.png">
 
 
 # 🔗 Links
@@ -49,6 +49,7 @@ https://github.com/The-Passion-of-the-Greens/The-Passion-Of-The-Greens
 3. https://perenual.com/api/species-list?key=sk-I07P640155763222b151&q=$%7BkeyWord%7D&edible=1
 4. https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients=$%7BkeyWord%7D&ignorePantry=true&ranking=1
 5. https://cdnjs.com
+6. https://bulma.io
 
 # 🔗 Project status
 
