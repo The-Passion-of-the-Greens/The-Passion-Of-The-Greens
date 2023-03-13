@@ -1,3 +1,4 @@
+
 :root{
     --green:#3A9943;
   }
@@ -185,8 +186,22 @@
   }
   body
    { background-image:url(./images/slider1.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: bottom
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: bottom;
   
    }
+   .card{
+    background-color: #ffffff;
+    border-radius: .300rem;
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    max-width: 50%;
+    
+       }
+       .p-4{
+        margin: -200px;
+        padding:28rem !important
+       
+       }
+   
