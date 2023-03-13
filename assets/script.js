@@ -39,6 +39,7 @@ function getApi() {
             var plantSunlight = document.createElement('p');
             var plantWatering = document.createElement('p');
             var otherName = document.createElement('p')
+            
 
             // Setting the text of plant to the first matching result
             plant.textContent = 'Common Name: ' + (randomResult.common_name || '');
@@ -65,8 +66,6 @@ function getApi() {
                 plantWatering.style.display = 'none';
             }
            
-            
-
             
             // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
             // The tablerow then gets appended to the tablebody
@@ -109,14 +108,16 @@ searchButton.addEventListener('click', getApi);
                 // Checks to see if search bar is empty
                 if(keyWord !== "") {
                     for (var i = 0; i < response.results.length; i++) {
-                    getRecipeInfo(response.results)
+                    const recipeId = response.results[i].id;   
+                    getRecipeInfo(recipeId);
                         // Creating elements, tablerow, tabledata, anchor, and image
                         var createTableRow = document.createElement('tr');
                         var tableData = document.createElement('td');
                         var dish = document.createElement('h3');
                         var dishLink = document.createElement('a');
                         var dishImg = document.createElement('img')
-                        
+                        const recipeImg = document.createElement('img');
+                       
                     
                         // Setting the text of dish while making sure that no dishes are repeated
                         if (i > 0) {
@@ -131,6 +132,8 @@ searchButton.addEventListener('click', getApi);
                                 dish.textContent = response.results[i].title;
                                 dishLink.textContent = response.results[i].sourceUrl;
                                 dishLink.href = response.results[i].sourceUrl;
+                              
+
             
                                 // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                                 // The tablerow then gets appended to the tablebody
@@ -144,6 +147,8 @@ searchButton.addEventListener('click', getApi);
                             dish.textContent = response.results[i].title;
                             dishLink.textContent = response.results[i].sourceUrl;
                             dishLink.href = response.results[i].sourceUrl;
+                            
+                            
                             // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
                             // The tablerow then gets appended to the tablebody
                             tableData.appendChild(dish);
@@ -154,7 +159,7 @@ searchButton.addEventListener('click', getApi);
                     }
                 }
             })
-            getRecipeInfo(keyWord);
+           
             // .catch(err => console.error(err));            
     }
 
@@ -162,9 +167,8 @@ searchButton.addEventListener('click', getApi);
     searchButton.addEventListener('click', getRecipeIngr);
 
     // Function to retrieve recipe information using spoontacular API, uses GET method. This will retrieve an object with 1 recipe and its data
-    function getRecipeInfo(results) {
+    function getRecipeInfo(recipeId) {
         
-
         const options = {
             method: 'GET',
             headers: {
@@ -173,10 +177,32 @@ searchButton.addEventListener('click', getApi);
             }
         };
         
-        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients=${keyWord}&ignorePantry=true&ranking=1`, options)
+        fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information?includeNutrition=false`, options)
             .then(response => response.json())
-            .then(response => console.log(response));
-        
+            .then(response => {
+                console.log(response)
+                const imageUrl = response.image;
+                const title = response.title;
+
+                var createTableRow = document.createElement('tr');
+                var tableData = document.createElement('td');
+                var dish = document.createElement('h3');
+                var dishLink = document.createElement('a');
+                var recipeName = document.createElement('h4')
+                const recipeImg = document.createElement('img');
+                recipeImg.src = imageUrl;
+                recipeName.textContent = title;
+
+            
+                
+                tableData.appendChild(recipeName);
+                tableData.appendChild(recipeImg);
+                tableData.appendChild(dishLink);
+                createTableRow.appendChild(tableData);
+                recpBody.appendChild(createTableRow);
+              
+            })
+            
     }
     // connects previous made event listener to be able to retrieve data from getRecipeInfo function
     searchButton.addEventListener('click',  getRecipeInfo);
