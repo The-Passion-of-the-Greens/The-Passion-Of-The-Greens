@@ -41,12 +41,30 @@ function getApi() {
             var otherName = document.createElement('p')
 
             // Setting the text of plant to the first matching result
-            plant.textContent = 'Common Name: ' + randomResult.common_name;
-            plantScn.textContent = 'Scientific Name: ' + randomResult.scientific_name;
-            otherName.textContent = 'Also refered to as: ' + randomResult.other_name;
-            plantSunlight.textContent = 'Sunlight: ' + randomResult.sunlight;
-            plantCycle.textContent = 'Cycle: ' + randomResult.cycle;
-            plantWatering.textContent = 'Watering: ' + randomResult.watering;
+            plant.textContent = 'Common Name: ' + (randomResult.common_name || '');
+            plantScn.textContent = 'Scientific Name: ' + (randomResult.scientific_name || '');
+            otherName.textContent = 'Also refered to as: ' + (randomResult.other_name || '');
+            plantSunlight.textContent = 'Sunlight: ' + (randomResult.sunlight || '');
+            plantCycle.textContent = 'Cycle: ' + (randomResult.cycle || '');
+            plantWatering.textContent = 'Watering: ' + (randomResult.watering || '');
+
+            // Hides elements with null values
+            if (!randomResult.common_name) {
+                plant.style.display = 'none';
+            }
+            if (!randomResult.scientific_name) {
+                plantScn.style.display = 'none';
+            }
+            if (!randomResult.sunlight) {
+                plantSunlight.style.display = 'none';
+            }
+            if (!randomResult.cycle) {
+                plantCycle.style.display = 'none';
+            }
+            if (!randomResult.watering) {
+                plantWatering.style.display = 'none';
+            }
+           
             
 
             
