@@ -38,20 +38,23 @@ function getApi() {
             var plantCycle = document.createElement('p')
             var plantSunlight = document.createElement('p');
             var plantWatering = document.createElement('p');
-            
+            var otherName = document.createElement('p')
 
             // Setting the text of plant to the first matching result
-            plant.textContent = randomResult.common_name;
-            plantScn.textContent = randomResult.scientific_name;
-            plantSunlight.textContent = randomResult.sunlight;
-            plantCycle.textContent = randomResult.cycle;
-            plantWatering.textContent = randomResult.watering;
-           
+            plant.textContent = 'Common Name: ' + randomResult.common_name;
+            plantScn.textContent = 'Scientific Name: ' + randomResult.scientific_name;
+            otherName.textContent = 'Also refered to as: ' + randomResult.other_name;
+            plantSunlight.textContent = 'Sunlight: ' + randomResult.sunlight;
+            plantCycle.textContent = 'Cycle: ' + randomResult.cycle;
+            plantWatering.textContent = 'Watering: ' + randomResult.watering;
+            
+
             
             // Appending the plant and plant image to the tabledata and then appending the tabledata to the tablerow
             // The tablerow then gets appended to the tablebody
             tableData.appendChild(plant);
             tableData.appendChild(plantScn);
+            tableData.appendChild(otherName);
             tableData.appendChild(plantSunlight);
             tableData.appendChild(plantCycle);
             tableData.appendChild(plantWatering);
