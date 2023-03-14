@@ -107,55 +107,10 @@ searchButton.addEventListener('click', getApi);
 
                 // Checks to see if search bar is empty
                 if(keyWord !== "") {
+                    // Pushes recipe names from ingredient listed into different API which returns correct images
                     for (var i = 0; i < response.results.length; i++) {
                     const recipeId = response.results[i].id;   
                     getRecipeInfo(recipeId);
-                        // Creating elements, tablerow, tabledata, anchor, and image
-                        var createTableRow = document.createElement('tr');
-                        var tableData = document.createElement('td');
-                        var dish = document.createElement('h3');
-                        var dishLink = document.createElement('a');
-                        var dishImg = document.createElement('img')
-                        const recipeImg = document.createElement('img');
-                       
-                    
-                        // Setting the text of dish while making sure that no dishes are repeated
-                        if (i > 0) {
-                            var count = 0;
-                            // Checking to see if the dish's name has been previously appended
-                            for (var j = 1; j < i + 1; j++) {
-                                if (response.results[i].title !== response.results[j-1].title) {
-                                    count++;
-                                }
-                            }
-                            if (count === (i)) {
-                                dish.textContent = response.results[i].title;
-                                dishLink.textContent = response.results[i].sourceUrl;
-                                dishLink.href = response.results[i].sourceUrl;
-                              
-
-            
-                                // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
-                                // The tablerow then gets appended to the tablebody
-                                tableData.appendChild(dish);
-                                tableData.appendChild(dishLink);
-                                createTableRow.appendChild(tableData);
-                                recpBody.appendChild(createTableRow);
-                            }
-                        }
-                        else {
-                            dish.textContent = response.results[i].title;
-                            dishLink.textContent = response.results[i].sourceUrl;
-                            dishLink.href = response.results[i].sourceUrl;
-                            
-                            
-                            // Appending the dish and dish image to the tabledata and then appending the tabledata to the tablerow
-                            // The tablerow then gets appended to the tablebody
-                            tableData.appendChild(dish);
-                            tableData.appendChild(dishLink);
-                            createTableRow.appendChild(tableData);
-                            recpBody.appendChild(createTableRow);
-                        }
                     }
                 }
             })
@@ -186,23 +141,17 @@ searchButton.addEventListener('click', getApi);
 
                 var createTableRow = document.createElement('tr');
                 var tableData = document.createElement('td');
-                var dish = document.createElement('h3');
-                var dishLink = document.createElement('a');
-                var recipeName = document.createElement('h4')
-                const recipeImg = document.createElement('img');
+                var recipeName = document.createElement('a')
+                var recipeImg = document.createElement('img');
+
                 recipeImg.src = imageUrl;
                 recipeName.textContent = title;
-
-            
+                recipeName.href = response.sourceUrl;
                 
                 tableData.appendChild(recipeName);
                 tableData.appendChild(recipeImg);
-                tableData.appendChild(dishLink);
                 createTableRow.appendChild(tableData);
                 recpBody.appendChild(createTableRow);
-              
             })
             
     }
-    // connects previous made event listener to be able to retrieve data from getRecipeInfo function
-    searchButton.addEventListener('click',  getRecipeInfo);
