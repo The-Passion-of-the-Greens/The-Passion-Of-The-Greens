@@ -10,6 +10,8 @@ function getApi() {
     keyWord = document.querySelector('#search-bar').value;
     var requestUrl = `https://perenual.com/api/species-list?key=sk-I07P640155763222b151&q=${keyWord}&edible=1`;
 
+   localStorage.setItem('searchTerm', keyWord);
+
     fetch(requestUrl)
     .then(function (response) {
         return response.json();
