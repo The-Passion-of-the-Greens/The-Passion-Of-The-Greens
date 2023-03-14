@@ -24,17 +24,25 @@
 
 # 🔗 Functionality
  ## Our team achieved our goals through the following:
-  - Implementing Google Fonts as our chosen CSS Framework
-  - Implemented API's
+  - Implementing Google Fonts as our chosen CSS Framework(Bulma)
+  - Implemented 2 API's(Plant Data Base API & Spoonacular Api)
   - Deployed our application to Github Pages
   - Maintained a clean repository that meets coding standards
   - Created a quality README
+  - Created a quality HTML & CSS
+  - Created a Logo to make the app look illegible
+  - Added client-side storage to store persistent data
+  
 
 
 
 
 ## The following Image demonstrates the application functionality:
 <img src="./assets/images/Screen Shot 2023-03-12 at 7.15.54 PM.png">
+
+<img src="./assets/images/Screen Shot 2023-03-13 at 6.46.27 PM.png">
+
+<img src="./assets/images/Screen Shot 2023-03-13 at 6.46.33 PM.png">
 
 
 # 🔗 Links
@@ -53,7 +61,7 @@ https://github.com/The-Passion-of-the-Greens/The-Passion-Of-The-Greens
 
 # 🔗 Project status
 
- In Progress
+ Complete
 
 
 MIT License
