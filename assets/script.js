@@ -42,9 +42,8 @@ function getApi() {
             
 
             // Setting the text of plant to the first matching result
-            plant.textContent = 'Common Name: ' + (randomResult.common_name || '');
-            plantScn.textContent = 'Scientific Name: ' + (randomResult.scientific_name || '');
-            otherName.textContent = 'Also refered to as: ' + (randomResult.other_name || '');
+            plant.textContent = 'Common name: ' + (randomResult.common_name || '');
+            plantScn.textContent = 'Scientific name: ' + (randomResult.scientific_name || '');
             plantSunlight.textContent = 'Sunlight: ' + (randomResult.sunlight || '');
             plantCycle.textContent = 'Cycle: ' + (randomResult.cycle || '');
             plantWatering.textContent = 'Watering: ' + (randomResult.watering || '');
@@ -71,7 +70,6 @@ function getApi() {
             // The tablerow then gets appended to the tablebody
             tableData.appendChild(plant);
             tableData.appendChild(plantScn);
-            tableData.appendChild(otherName);
             tableData.appendChild(plantSunlight);
             tableData.appendChild(plantCycle);
             tableData.appendChild(plantWatering);
