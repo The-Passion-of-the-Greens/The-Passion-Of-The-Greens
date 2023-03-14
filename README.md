@@ -38,11 +38,11 @@
 
 
 ## The following Image demonstrates the application functionality:
-<img src="./assets/images/Screen Shot 2023-03-12 at 7.15.54 PM.png">
+<img src="./assets/images/Screen Shot 2023-03-13 at 9.08.10 PM.png">
 
-<img src="./assets/images/Screen Shot 2023-03-13 at 6.46.27 PM.png">
+<img src="./assets/images/Screen Shot 2023-03-13 at 9.08.45 PM.png">
 
-<img src="./assets/images/Screen Shot 2023-03-13 at 6.46.33 PM.png">
+<img src="./assets/images/Screen Shot 2023-03-13 at 9.08.52 PM.png">
 
 
 # 🔗 Links
