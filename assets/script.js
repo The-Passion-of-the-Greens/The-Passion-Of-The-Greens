@@ -7,7 +7,7 @@ var keyWord = document.querySelector('#search-bar').value;
 
 // Function used to retrieve species-list information regarding the perrenual API
 function getApi() {
-    keyWord = document.querySelector('#search-bar').value;
+    keyWord = searchBar.value;
     var requestUrl = `https://perenual.com/api/species-list?key=sk-I07P640155763222b151&q=${keyWord}&edible=1`;
 
    localStorage.setItem('searchTerm', keyWord);
@@ -77,12 +77,16 @@ function getApi() {
             tableData.appendChild(plantWatering);
             createTableRow.appendChild(tableData);
             tableBody.appendChild(createTableRow);
+
+            // clears search bar after button is clicked
+            searchBar.value = '';
         }
     })
 }
 
 // Adds event listener to retrieve getApi function
-searchButton.addEventListener('click', getApi);
+searchButton.addEventListener('click', getApi); 
+
 
     // Function to retrieve recipes by ingredients using spoontacular API
     function getRecipeIngr() {
