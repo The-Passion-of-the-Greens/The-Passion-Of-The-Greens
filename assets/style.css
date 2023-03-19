@@ -1,8 +1,8 @@
-
+/* Header starts here */
 :root{
   --green:#3A9943;
 }
-
+/* Adding a font to the header */
 *{
   font-family: 'Roboto', sans-serif;
   margin:0; padding:0;
@@ -64,6 +64,7 @@ section{
   padding:2rem 9%;
   background:var(--green);
 }
+/* Adding a logo image */
 .logo img{
   float: left;
   width: 350px;
@@ -107,7 +108,7 @@ section{
 .header-2 .logo i{
   color:yellow;
 }
-
+/* Adding a Search bar Container */
 .header-2 .search-bar-container{
   display: flex;
   align-items: center;
@@ -156,7 +157,7 @@ section{
 .header-3 a:hover{
   color:var(--green);
 }
-
+/* Adding a font, color and possitionning to the Menu bar */
 #menu-bar{
   font-size: 3rem;
   color:#666;
@@ -184,6 +185,7 @@ section{
 .p-class-my-4{
   font-size: 30px;
 }
+/* Adding a background image to the app */
 body
  { background-image:url(./images/slider1.jpg);
   background-repeat: repeat;
@@ -191,6 +193,7 @@ body
   background-position: bottom;
 
  }
+ /* Adding a possitioning to the card */
  .card{
   background-color: #ffffff;
   border-radius: .300rem;
